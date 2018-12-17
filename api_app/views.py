@@ -7,8 +7,8 @@ from rest_framework import viewsets
 from .serializers import tempserializer
 from django.views.decorators.csrf import csrf_exempt
 
-def index(requst):
-    return HttpResponse('Connected')
+def index(request):
+    return render(request, "index.html") #HttpResponse('Connected')
 
 @csrf_exempt
 def post(request):
