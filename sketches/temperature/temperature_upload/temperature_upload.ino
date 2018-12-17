@@ -3,7 +3,6 @@
 #include <DHT.h>;
 #include <ESP8266WiFi.h>
 #include <ESP8266HTTPClient.h>
-//#include <WiFiClient.h>
 
 //Constants
 const char* ssid     = "Coffman";         // The SSID (name) of the Wi-Fi network you want to connect to
@@ -21,6 +20,7 @@ HTTPClient http;
 
 //Variables
 float temp;
+float hum;
 char payload;
 
 void setup() {
@@ -44,10 +44,10 @@ void setup() {
 
 void loop() {
   temp = dht.readTemperature(true);
-
+  hum  = dht.readHumidity();
 
   if(WiFi.status()==WL_CONNECTED) {
-    commit_temperature(temp);
+    commit_temperature();
   }
   delay(upload_seconds * 1000);
 }
@@ -65,16 +65,23 @@ void open_connection() {
   Serial.println(WiFi.localIP()); 
 }
 
-void commit_temperature(float t) {
+void commit_temperature() {
   Serial.print('\n');
+
+  // Print out temperature data
   Serial.print("Temperature: ");
   Serial.print(temp);
   Serial.println(" F");
+
+  // Print out humidity data
+  Serial.print("Humidity: ");
+  Serial.print(hum);
+  Serial.println("%");
   
   //Send data to API
   String PostData;
   if (http.begin("http://192.168.0.113:8000/upload/")) {
-    PostData = "{\"Room\": \"" + room + "\",\"Temp\": \"" + String(temp) + "\"}";
+    PostData = "{\"Room\": \"" + room + "\",\"Temp\": \"" + String(temp) + "\",\"Humidity\": \"" + String(hum) + "\"}";
     
     http.addHeader("Content-Type", "application/json");
     http.POST(PostData);
