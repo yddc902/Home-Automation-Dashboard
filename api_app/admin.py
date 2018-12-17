@@ -3,4 +3,4 @@ from .models import TempModel, WaterModel
 
 # Register your models here.
 admin.site.register(TempModel)
-admin.site.registers(WaterModel)
+admin.site.register(WaterModel)

@@ -19,4 +19,4 @@ class TempModel(models.Model):
 
 class WaterModel(models.Model):
     date = models.DateTimeField(auto_now=False)
-    water_level = models.FloatField(max_length=10, required=True)
+    water_level = models.FloatField(max_length=10)
