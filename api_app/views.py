@@ -24,6 +24,7 @@ def post(request):
         print(received_data)
         print(received_data['Room'])
         print(received_data['Temp'])
+        print(received_data['Humidity'])
 
         serializer = tempserializer(data={'date': datetime.datetime.now(), 'room': received_data['Room'], 'temperature_f': received_data['Temp']})
         if serializer.is_valid():
