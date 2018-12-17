@@ -6,14 +6,16 @@ from rest_framework import serializers
 class tempserializer(serializers.ModelSerializer):
     class Meta:
         model = TempModel
-        fields = '__all__' #('date','room','temperature_f')
+        fields = '__all__' #('date','room','temperature_f', humidity)
 
     def create(self, validated_data):
         new_temp = TempModel(
             #date = datetime.datetime.now(),
             date = validated_data['date'],
             room = validated_data['room'],
-            temperature_f = validated_data['temperature_f'])
+            temperature_f = validated_data['temperature_f'],
+            humidity = validated_data['humidity'])
+
 
         new_temp.save()
         return new_temp
