@@ -9,4 +9,10 @@ def test_post():
     print('Test completed.')
     #print(r.text[:])
 
+    #This data can be retrieved from the POST request using:
+    #   request.POST['id']
+    #   which will yield a value of '77'
+    #
+    #   this is not necessarily compatible with the current method of using json.loads
+
 test_post()
