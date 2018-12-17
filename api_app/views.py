@@ -27,7 +27,7 @@ def post(request):
         print(received_data['Humidity'])
 
         serializer = tempserializer(
-            data={
+            data={ #Must match model
                 'date': datetime.datetime.now(),
                 'room': received_data['Room'],
                 'temperature_f': received_data['Temp'],
