@@ -25,6 +25,7 @@ router.register(r'TempModel', views.TempViewSet)
 urlpatterns = [
     path('', views.index, name='index'),
     path('admin/', admin.site.urls),
-    path('upload/', views.post, name='upload'),
+    path('upload/temp/', views.post, name='temp'),
+    path('upload/water/', views.post_water, name='level'),
     path(r'api/', include(router.urls))
 ]
