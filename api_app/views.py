@@ -26,7 +26,14 @@ def post(request):
         print(received_data['Temp'])
         print(received_data['Humidity'])
 
-        serializer = tempserializer(data={'date': datetime.datetime.now(), 'room': received_data['Room'], 'temperature_f': received_data['Temp'], 'humidity': received_data['Humidity']})
+        serializer = tempserializer(
+            data={
+                'date': datetime.datetime.now(),
+                'room': received_data['Room'],
+                'temperature_f': received_data['Temp'],
+                'humidity': received_data['Humidity']
+                })
+
         if serializer.is_valid():
             #serializer.save()
             return HttpResponse("Uploaded")
