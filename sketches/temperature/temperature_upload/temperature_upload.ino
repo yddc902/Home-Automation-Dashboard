@@ -10,6 +10,7 @@ const char* password = "rem35621";     // The password of the Wi-Fi network
 const char server[] = "192.168.0.113";
 const int upload_seconds = 30;
 const String room = "Kitchen";
+const String connector = "http://192.168.0.113/upload/temp/";
 
 #define DHTPIN  4
 #define DHTTYPE DHT22
@@ -38,35 +39,13 @@ void setup() {
     Serial.println("Connected to server!");
   } else{
     Serial.println("Failed to connect :(");
-    return;    
-  }  
+    return;
+  }
 }
 
 void loop() {
   temp = dht.readTemperature(true);
   hum  = dht.readHumidity();
-
-  if(WiFi.status()==WL_CONNECTED) {
-    commit_temperature();
-  }
-  delay(upload_seconds * 1000);
-}
-
-void open_connection() {
-  int i = 0;
-  while (WiFi.status() != WL_CONNECTED) { // Wait for the Wi-Fi to connect
-    delay(1000);
-    Serial.print(++i); Serial.print(' ');
-  }
-  
-  Serial.println('\n');
-  Serial.println(" WiFi Connection established!");
-  Serial.print("IP address:\t");
-  Serial.println(WiFi.localIP()); 
-}
-
-void commit_temperature() {
-  Serial.print('\n');
 
   // Print out temperature data
   Serial.print("Temperature: ");
@@ -77,12 +56,36 @@ void commit_temperature() {
   Serial.print("Humidity: ");
   Serial.print(hum);
   Serial.println("%");
-  
+
+  if(WiFi.status()==WL_CONNECTED) {
+    commit_temperature();
+  } else {
+    Serial.println("WiFi not connected");
+  }
+  delay(upload_seconds * 1000);
+}
+
+void open_connection() {
+  int i = 0;
+  while (WiFi.status() != WL_CONNECTED) { // Wait for the Wi-Fi to connect
+    delay(1000);
+    Serial.print(++i); Serial.print(' ');
+  }
+
+  Serial.println('\n');
+  Serial.println(" WiFi Connection established!");
+  Serial.print("IP address:\t");
+  Serial.println(WiFi.localIP());
+}
+
+void commit_temperature() {
+  Serial.print('\n');
+
   //Send data to API
   String PostData;
-  if (http.begin("http://192.168.0.113:8000/upload/")) {
+  if (http.begin(connector)) {
     PostData = "{\"Room\": \"" + room + "\",\"Temp\": \"" + String(temp) + "\",\"Humidity\": \"" + String(hum) + "\"}";
-    
+
     http.addHeader("Content-Type", "application/json");
     http.POST(PostData);
     Serial.println("Sending data to server...");
@@ -90,5 +93,5 @@ void commit_temperature() {
     } else {
       Serial.println("Failed to send data...");
       }
-  
+
 }
