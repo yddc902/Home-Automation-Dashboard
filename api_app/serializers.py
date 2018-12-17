@@ -27,7 +27,7 @@ class waterserializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         new_level = WaterModel(
-            date = validated_data['date']
+            date = validated_data['date'],
             water_level = validated_data['water_level'])
 
         new_level.save()
