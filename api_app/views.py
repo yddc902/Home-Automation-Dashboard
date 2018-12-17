@@ -35,7 +35,7 @@ def post(request):
                 })
 
         if serializer.is_valid():
-            #serializer.save()
+            serializer.save()
             return HttpResponse("Uploaded")
         else:
             print("Data not valid")
