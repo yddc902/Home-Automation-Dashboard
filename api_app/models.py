@@ -24,3 +24,4 @@ class WaterModel(models.Model):
 class DetectionModel(models.Model):
     date = models.DateTimeField(auto_now=False)
     water_level = models.FloatField(max_length=10)
+    water_detected = models.BooleanField()
