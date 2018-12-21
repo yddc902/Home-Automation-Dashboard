@@ -57,3 +57,18 @@ def post_water(request):
             })
 
         return HttpResponse('Upload completed')
+
+def post_water_detected(request):
+    if request.method == "POST":
+        print("New detection incoming...")
+
+        received_data = json.loads(request.body)
+        serializer = detectionserializer(
+            data = {
+                'date': datetime.datetime.now(),
+                'water_level': received_data['Level']
+                if received_data['Level'] > 10:
+                    'water_detected': True
+                else:
+                    'water_detected': False
+            })
