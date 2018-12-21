@@ -15,12 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from api_app import views
+from api_app import views, viewsets
 
 from rest_framework import routers
 
 router = routers.DefaultRouter()
-router.register(r'TempModel', views.TempViewSet)
+router.register(r'TempModel', viewsets.TempViewSet)
 
 urlpatterns = [
     path('', views.index, name='index'),

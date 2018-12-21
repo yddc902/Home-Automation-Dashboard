@@ -63,12 +63,15 @@ def post_water_detected(request):
         print("New detection incoming...")
 
         received_data = json.loads(request.body)
+
+        if received_data['Level'] > 10:
+            wd = True
+        else:
+            wd = False
+
         serializer = detectionserializer(
             data = {
                 'date': datetime.datetime.now(),
-                'water_level': received_data['Level']
-                if received_data['Level'] > 10:
-                    'water_detected': True
-                else:
-                    'water_detected': False
+                'water_level': received_data['Level'],
+                'water_detected': wd
             })
