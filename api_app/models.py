@@ -20,3 +20,7 @@ class TempModel(models.Model):
 class WaterModel(models.Model):
     date = models.DateTimeField(auto_now=False)
     water_level = models.FloatField(max_length=10)
+
+class DetectionModel(models.Model):
+    date = models.DateTimeField(auto_now=False)
+    water_level = models.FloatField(max_length=10)
