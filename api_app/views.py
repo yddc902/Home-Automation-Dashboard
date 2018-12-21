@@ -1,11 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import TempModel, WaterModel
+from django.views.decorators.csrf import csrf_exempt
+
 import datetime
 import json
-from rest_framework import viewsets
-from .serializers import tempserializer, waterserializer
-from django.views.decorators.csrf import csrf_exempt
 
 def index(request):
     return render(request, "index.html") #HttpResponse('Connected')
@@ -59,11 +57,3 @@ def post_water(request):
             })
 
         return HttpResponse('Upload completed')
-
-class TempViewSet(viewsets.ModelViewSet):
-        queryset = TempModel.objects.all()
-        serializer_class = tempserializer
-
-class WaterViewSet(viewsets.ModelViewSet):
-    queryset = WaterModel.objects.all()
-    serializer_class = waterserializer

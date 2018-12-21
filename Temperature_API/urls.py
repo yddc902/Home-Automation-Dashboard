@@ -27,5 +27,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('upload/temp/', views.post, name='temp'),
     path('upload/water/', views.post_water, name='level'),
+    path('upload/waterdetected/', views.post_water_detected, name='detected'),
     path(r'api/', include(router.urls))
 ]
