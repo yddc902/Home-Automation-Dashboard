@@ -21,6 +21,8 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r'TempModel', viewsets.TempViewSet)
+router.register(r'WaterModel', viewsets.WaterViewSet)
+router.register(r'DetectionModel', viewsets.DetectionViewSet)
 
 urlpatterns = [
     path('', views.index, name='index'),

@@ -40,7 +40,8 @@ class detectionserializer(serializers.ModelSerializer):
     def create(self, validated_data):
         new_detection = DetectionModel(
             date = validated_data['date'],
-            water_level = validated_datap['water_level'])
+            water_level = validated_data['water_level'],
+            water_detected = validated_data['water_detected'])
 
         new_detection.save()
         return new_detection

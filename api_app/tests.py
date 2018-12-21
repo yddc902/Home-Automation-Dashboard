@@ -23,8 +23,14 @@ def test_json():
 
     print(json.dumps(send_data)) #Return string from JSON-like object
     received_data = json.dumps(send_data)
-    
+
     print(json.loads(received_data)['id']) #Use json.loads() to turn string into JSON
 
-test_json()
+def test_detection():
+    send_data = {'Level': 50}
+    r = requests.post('http://127.0.0.1:8000/upload/waterdetected/', data=send_data)
+    print('Test Completed')
+
+test_detection()
+#test_json()
 #test_post()

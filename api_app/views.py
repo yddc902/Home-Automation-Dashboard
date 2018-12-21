@@ -1,11 +1,14 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from .models import DetectionModel
 
 import datetime
 import json
 
 def index(request):
+    DetectionModel.filter(date=datetime.today())
+
     return render(request, "index.html") #HttpResponse('Connected')
 
 @csrf_exempt
@@ -58,11 +61,14 @@ def post_water(request):
 
         return HttpResponse('Upload completed')
 
+@csrf_exempt
 def post_water_detected(request):
     if request.method == "POST":
         print("New detection incoming...")
 
+        print(request.body)
         received_data = json.loads(request.body)
+        print(received_data)
 
         if received_data['Level'] > 10:
             wd = True
@@ -75,3 +81,5 @@ def post_water_detected(request):
                 'water_level': received_data['Level'],
                 'water_detected': wd
             })
+
+        return HttpResponse('Upload Completed')
