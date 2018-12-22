@@ -3,8 +3,8 @@ from rest_framework import viewsets
 from .serializers import tempserializer, waterserializer, detectionserializer
 
 class TempViewSet(viewsets.ModelViewSet):
-        queryset = TempModel.objects.all()
-        serializer_class = tempserializer
+    queryset = TempModel.objects.all()
+    serializer_class = tempserializer
 
 class WaterViewSet(viewsets.ModelViewSet):
     queryset = WaterModel.objects.all()

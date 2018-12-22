@@ -7,7 +7,7 @@ import datetime
 import json
 
 def index(request):
-    DetectionModel.filter(date=datetime.today())
+    #DetectionModel.filter(date=datetime.today())
 
     return render(request, "index.html") #HttpResponse('Connected')
 
