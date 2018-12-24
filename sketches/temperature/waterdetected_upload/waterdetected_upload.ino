@@ -9,7 +9,7 @@ const char* password = "rem35621";     // The password of the Wi-Fi network
 const char server[] = "192.168.0.113";
 const int upload_minutes = 60;
 const String room = "Basement";
-const String connector = "http://192.168.0.113:8000/upload/waterdetected/";
+const String connector = "http://192.168.0.113:8000/upload/waterdetected/"; //Port must be in URL
 
 int analogpin = A0;
 
@@ -42,7 +42,7 @@ void wifi_connect() {
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid,password);
   Serial.print("Connecting...");
-  
+
   int i = 0;
   while (WiFi.status() != WL_CONNECTED) { // Wait for the Wi-Fi to connect
     delay(1000);

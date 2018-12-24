@@ -60,7 +60,14 @@ def post_water(request):
                 'water_level': received_data['Level']
             })
 
-        return HttpResponse('Upload completed')
+        if serializer.is_valid():
+            serializer.save()
+            return HttpResponse("Uploaded")
+        else:
+            print("Data not valid")
+            return HttpResponse("Upload failed")
+
+    return HttpResponse('')
 
 @csrf_exempt
 def post_water_detected(request):
@@ -90,4 +97,4 @@ def post_water_detected(request):
             print("Data not valid")
             return HttpResponse("Upload failed")
 
-        return HttpResponse('Upload Completed')
+    return HttpResponse('')

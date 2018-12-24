@@ -10,8 +10,8 @@ const char* password = "rem35621";     // The password of the Wi-Fi network
 const char server[] = "192.168.0.113";
 const int upload_seconds = 30;
 const String room = "Kitchen";
-const String connector = "http://192.168.0.113/upload/water/";
-
+const String connector = "http://192.168.0.113:8000/upload/water/"; //Port must be in URL
+const analogpin = A0;
 
 WiFiClient client;
 HTTPClient http;
@@ -38,8 +38,6 @@ void setup() {
 }
 
 void loop() {
-
-
   if(WiFi.status()==WL_CONNECTED) {
     commit_temperature();
   } else {
@@ -67,7 +65,8 @@ void commit_temperature() {
   //Send data to API
   String PostData;
   if (http.begin(connector)) {
-    PostData = "{\"Room\": \"" + room + "\",\"Temp\": \"" + String(temp) + "\",\"Humidity\": \"" + String(hum) + "\"}";
+    //PostData = "{\"Room\": \"" + room + "\",\"Temp\": \"" + String(temp) + "\",\"Humidity\": \"" + String(hum) + "\"}";
+    PostData = "{\"Level\": \"" + String(analogRead(analogpin)) + "\"}"
 
     http.addHeader("Content-Type", "application/json");
     http.POST(PostData);
