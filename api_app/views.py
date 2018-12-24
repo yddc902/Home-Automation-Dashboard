@@ -71,7 +71,7 @@ def post_water_detected(request):
         received_data = json.loads(request.body)
         print(received_data)
 
-        if received_data['Level'] > 10:
+        if int(received_data['Level']) > 10:
             wd = True
         else:
             wd = False
@@ -82,5 +82,12 @@ def post_water_detected(request):
                 'water_level': received_data['Level'],
                 'water_detected': wd
             })
+
+        if serializer.is_valid():
+            serializer.save()
+            return HttpResponse("Uploaded")
+        else:
+            print("Data not valid")
+            return HttpResponse("Upload failed")
 
         return HttpResponse('Upload Completed')
