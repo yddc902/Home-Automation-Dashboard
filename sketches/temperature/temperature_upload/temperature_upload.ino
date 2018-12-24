@@ -10,7 +10,7 @@ const char* password = "rem35621";     // The password of the Wi-Fi network
 const char server[] = "192.168.0.113";
 const int upload_seconds = 30;
 const String room = "Kitchen";
-const String connector = "http://192.168.0.113/upload/temp/";
+const String connector = "http://192.168.0.113:8000/upload/temp/";
 
 #define DHTPIN  4
 #define DHTTYPE DHT22
@@ -89,7 +89,10 @@ void commit_temperature() {
     http.addHeader("Content-Type", "application/json");
     http.POST(PostData);
     Serial.println("Sending data to server...");
-    Serial.println(http.getString());
+    
+    if(String(Serial.println(http.getString())) == String("")) {
+      Serial.println("Failed to send data...");
+    }
     } else {
       Serial.println("Failed to send data...");
       }

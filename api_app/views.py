@@ -2,14 +2,15 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import DetectionModel
+from .serializers import tempserializer, waterserializer, detectionserializer
 
 import datetime
 import json
 
 def index(request):
     #DetectionModel.filter(date=datetime.today())
-
-    return render(request, "index.html") #HttpResponse('Connected')
+    #return render(request, "index.html") #HttpResponse('Connected')
+    return HttpResponse("Connected")
 
 @csrf_exempt
 def post(request):

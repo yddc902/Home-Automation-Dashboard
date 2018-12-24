@@ -9,7 +9,7 @@ const char* password = "rem35621";     // The password of the Wi-Fi network
 const char server[] = "192.168.0.113";
 const int upload_minutes = 60;
 const String room = "Basement";
-const String connector = "http://192.168.0.113/upload/water/";
+const String connector = "http://192.168.0.113/upload/waterdetected/";
 
 int analogpin = A0;
 
@@ -20,40 +20,29 @@ HTTPClient http;
 
 void setup() {
   Serial.begin(115200);
+  Serial.println("Device started");
 }
 
 void loop() {
-  if(analogread(analogpin) > 10){
+  if(analogRead(analogpin) > 10){
     wifi_connect();
 
     if(WiFi.status()==WL_CONNECTED) {
       server_connect();
-      POST_status();
 
-      client.close();
+      //client.close();
     } else {
       Serial.println("WiFi not connected");
     }
-  }
-  delay(upload_minutes * 60 * 1000);
+  } else { Serial.println("Water not detected"); }
+  delay(3000);  //upload_minutes * 60 * 1000);
 }
 
 void wifi_connect() {
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid,password);
   Serial.print("Connecting...");
-
-  Serial.println('\n');
-  Serial.println("Attempting to connect to server...");
-  if (client.connect(server, 8000)){
-    Serial.println("Connected to server!");
-  } else{
-    Serial.println("Failed to connect :(");
-    return;
-  }
-}
-
-void server_connect() {
+  
   int i = 0;
   while (WiFi.status() != WL_CONNECTED) { // Wait for the Wi-Fi to connect
     delay(1000);
@@ -64,6 +53,19 @@ void server_connect() {
   Serial.println("WiFi Connection established!");
   Serial.print("IP address:\t");
   Serial.println(WiFi.localIP());
+
+}
+
+void server_connect() {
+  Serial.println('\n');
+  Serial.println("Attempting to connect to server...");
+  if (client.connect(server, 8000)){
+    Serial.println("Connected to server!");
+    POST_status();
+  } else{
+    Serial.println("Failed to connect :(");
+    return;
+  }
 }
 
 void POST_status() {
@@ -72,8 +74,9 @@ void POST_status() {
   //Send data to API
   String PostData;
   if (http.begin(connector)) {
-    //PostData = "{\"Room\": \"" + room + "\",\"Temp\": \"" + String(temp) + "\",\"Humidity\": \"" + String(hum) + "\"}";
-    PostData = "{\"Level\": \"" + analogread(analogpin) + "\"}";
+    PostData = "{\"Level\": \"" + String(analogRead(analogpin)) + "\"}";
+    Serial.println(PostData);
+
 
     http.addHeader("Content-Type", "application/json");
     http.POST(PostData);
