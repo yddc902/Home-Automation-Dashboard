@@ -3,4 +3,5 @@ django-crispy-forms==1.7.2
 django-filter==2.0.0
 django-heroku
 djangorestframework==3.9.0
+gunicorn==19.9.0
 requests==2.19.1
