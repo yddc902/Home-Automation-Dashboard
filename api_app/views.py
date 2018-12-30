@@ -13,7 +13,7 @@ def index(request):
     return HttpResponse("Connected")
 
 @csrf_exempt
-def post(request):
+def post_temp(request):
     if request.method == "POST":
         print('Connected to view...')
 

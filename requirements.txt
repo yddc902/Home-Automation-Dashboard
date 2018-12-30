@@ -1,0 +1,5 @@
+Django==2.1.2
+django-crispy-forms==1.7.2
+django-filter==2.0.0
+djangorestframework==3.9.0
+requests==2.19.1
