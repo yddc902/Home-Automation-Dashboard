@@ -9,8 +9,8 @@ import json
 
 def index(request):
     #DetectionModel.filter(date=datetime.today())
-    #return render(request, "index.html") #HttpResponse('Connected')
-    return HttpResponse("Connected")
+    return render(request, "index.html") #HttpResponse('Connected')
+    #return HttpResponse("Connected")
 
 @csrf_exempt
 def post_temp(request):

@@ -1,13 +1,41 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>API Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'api_app/base.css' %}">
   </head>
   <body>
-    <div class="row">
-      
+    <div class="wrapper">
+      <nav id="sidebar">
+        <div class="sidebar-header">
+          <h3>Dashboard</h3>
+        </div>
+
+        <ul class="list-unstyled componenets">
+          <li class="active">
+            <a href="{% url 'index' %}">Home</a>
+          </li>
+
+          <li>
+            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dashboard</a>
+            <ul class="collapse list-unstyled" id="pageSubmenu">
+              <li>
+                <a href="#">Dashboard 1</a>
+              </li>
+              <li>
+                <a href="#">Dashboard 2</a>
+              </li>
+              <li>
+                <a href="#">Dashboard 3</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
     </div>
   </body>
 </html>
