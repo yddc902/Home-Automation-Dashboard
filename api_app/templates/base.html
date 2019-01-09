@@ -6,7 +6,8 @@
     <meta charset="utf-8">
     <title>API Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'api_app/base.css' %}">
+    <link rel="stylesheet" href="{% static 'api_app/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'api_app/css/notification.css' %}">
   </head>
   <body>
     <div class="wrapper">
@@ -60,10 +61,31 @@
       <div id="content">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <div class="container-fluid">
-            <input type="text" name="search" value="">
+            <h3>Filler Text</h3>
           </div>
         </nav>
+
+        <div class="container">
+          <div class="row">
+            <div class="card" id="notification-grid">
+              <p>Column - Mail</p>
+            </div>
+            <div class="card" id="notification-grid">
+              <p>Column 2 - Water</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="card" id="notification-grid">
+              <p>Temperatures</p>
+            </div>
+            <div class="card" id="notification-grid">
+              <p>Other</p>
+            </div>
+          </div>
+        </div>
+
       </div>
+
     </div>
   </body>
 </html>
