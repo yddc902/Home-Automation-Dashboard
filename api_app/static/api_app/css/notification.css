@@ -1,12 +1,32 @@
 #notification-grid {
   width: 100%;
-  height: 100%;
+  height: 280px;
   padding: .75rem;
   margin-bottom: 2rem;
 }
 
 .card-container {
   height: 280px;
-  width: 50%;
+  width: 100%;
   padding: 10px;
+}
+
+.column {
+  width: 50%;
+  margin-bottom: 2%;
+}
+
+.row {
+  padding-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .column {
+    width: 100%;
+    margin-bottom: 50%;
+  }
+  .card-container {
+    height: 80px;
+    padding: 5px;
+  }
 }
