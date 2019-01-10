@@ -20,10 +20,16 @@
 
         <ul class="list-unstyled componenets">
           <li class="active">
-            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'index' %}">
+              <i class="fas fa-home"></i>
+              Home
+            </a>
           </li>
           <li>
-            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Dashboard</a>
+            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+              <i class="fas fa-chart-line"></i>
+              Dashboard
+            </a>
             <ul class="collapse list-unstyled" id="pageSubmenu">
               <li>
                 <a href="#">Dashboard 1</a>
@@ -37,7 +43,10 @@
             </ul>
           </li>
           <li>
-            <a href="#projectSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Projects</a>
+            <a href="#projectSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+              <i class="fas fa-project-diagram"></i>
+              Projects
+            </a>
             <ul class="collapse list-unstyled" id="projectSubmenu">
               <li>
                 <a href="#">Project 1</a>
@@ -45,15 +54,18 @@
             </ul>
           </li>
           <li>
-            <a href="#">About Me</a>
+            <a href="#">
+              <i class="far fa-meh-blank"></i>
+              About Me
+            </a>
           </li>
         </ul>
 
         <div class="sidebar-divider-dark" />
 
         <div class="link-icons">
-          <a href="#">LI</a>
-          <a href="#">GH</a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-github-square"></i></a>
         </div>
 
       </nav>
@@ -115,9 +127,9 @@
             </div>
           </div>
         </div>
-
       </div>
-
     </div>
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   </body>
 </html>

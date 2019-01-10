@@ -39,6 +39,8 @@
 
 #sidebar .link-icons {
   background: #7386D5;
+  margin: none;
+  padding-left: 10px;
 }
 
 #sidebar ul.components {
