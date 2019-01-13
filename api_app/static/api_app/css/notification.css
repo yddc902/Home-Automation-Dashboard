@@ -23,7 +23,7 @@
 @media only screen and (max-width: 1000px) {
   .column {
     width: 100%;
-    margin-bottom: 50%;
+    margin-bottom: 40%;
   }
   .card-container {
     height: 80px;

@@ -1,3 +1,8 @@
+body {
+  margin: 0px;
+  padding-bottom: 0px;
+}
+
 .wrapper {
   display: flex;
   width: 100%;
@@ -37,10 +42,18 @@
   background: #6d7fcc;
 }
 
-#sidebar .link-icons {
+#sidebar .link-container {
   background: #7386D5;
-  margin: none;
+  margin: auto;
   padding-left: 10px;
+  width: 50%;
+}
+
+#sidebar .icon-wrapper {
+  background: #7386D5;
+  display: block;
+  margin-left: auto;
+  width: 100%;
 }
 
 #sidebar ul.components {
@@ -55,7 +68,7 @@
 }
 
 #sidebar ul li a {
-    padding: 12.5px;
+    padding: 15px;
     font-size: 1.1em;
     display: block;
     color: #f8f9fa;
@@ -88,7 +101,8 @@ a[data-toggle="collapse"] {
     transform: translateY(-50%);
 }
 
-@media (max-width: 1000px) {
+/** Adjust values when screen is smaller**/
+@media only screen and (max-width: 1000px) {
     #sidebar {
       min-width: 80px;
       max-width: 80px;
@@ -105,11 +119,22 @@ a[data-toggle="collapse"] {
         display: block;
     }
 
+    #sidebar .link-container {
+      background: #7386D5;
+      margin: auto;
+      padding: 15px;
+      /**width: 100%;**/
+    }
+
+    #sidebar .link-icons {
+      width: 100%;
+    }
+
     /* Downsize the navigation links font size */
     #sidebar ul li a {
         margin-right: 0;
         display: block;
-        padding: 10px;
+        padding: 12px;
         text-align: center;
         font-size: 0.75em;
         }
