@@ -1,4 +1,5 @@
 #notification-grid {
+  display: flex;
   width: 100%;
   height: 280px;
   padding: .75rem;
@@ -18,6 +19,23 @@
 
 .row {
   padding-top: 5px;
+}
+
+.icon-centered {
+  margin: auto;
+}
+
+#badgeGrid a i {
+  display: block;
+  font-size: 150px;
+  color: #c5c7ca;
+  text-align: center;
+}
+
+#badgeGrid a p {
+  text-align: center;
+  display: block;
+  color: inherit;
 }
 
 @media only screen and (max-width: 1000px) {

@@ -9,19 +9,25 @@
 {% block content %}
 
 <!-- This is the non-rearrangeable version-->
-<div class="container">
+<div class="container" id="badgeGrid">
   <div class="row">
     <div class="column">
       <div class="card-container">
         <div class="jumbotron" id="notification-grid">
-          <p>Column - Mail</p>
+          <a class="icon-centered" href="#">
+            <i class="far fa-envelope"></i>
+            <p>Mail arrived at:<p>
+          </a>
         </div>
       </div>
     </div>
     <div class="column">
       <div class="card-container">
         <div class="jumbotron" id="notification-grid">
-          <p>Column 2 - Water</p>
+          <a class="icon-centered" href="#">
+            <i class="fas fa-tint"></i>
+            <p>Water detected<p>
+          </a>
         </div>
       </div>
     </div>
@@ -30,14 +36,21 @@
     <div class="column">
       <div class="card-container">
         <div class="jumbotron" id="notification-grid">
-          <p>Temperatures</p>
+          <a href="#">
+            <i class="fas fa-thermometer-three-quarters"></i>
+            <p>Temperatures</p>
+            <p>Room1</p>
+          </a>
         </div>
       </div>
     </div>
     <div class="column">
       <div class="card-container">
         <div class="jumbotron" id="notification-grid">
-          <p>Other</p>
+          <a class="icon-centered" href="#">
+            <i class="fas fa-door-open"></i>
+            <p>Open door detected<p>
+          </a>
         </div>
       </div>
     </div>
