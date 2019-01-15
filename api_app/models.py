@@ -25,3 +25,7 @@ class DetectionModel(models.Model):
     date = models.DateTimeField(auto_now=False)
     water_level = models.FloatField(max_length=10)
     water_detected = models.BooleanField()
+
+class MailModel(models.Model):
+    date = models.DateTimeField(auto_now=False)
+    mail_detected = models.BooleanField()

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from .models import DetectionModel
-from .serializers import tempserializer, waterserializer, detectionserializer
+from .serializers import tempserializer, waterserializer, detectionserializer, mailserializer
 
 import datetime
 import json
@@ -88,6 +88,33 @@ def post_water_detected(request):
                 'date': datetime.datetime.now(),
                 'water_level': received_data['Level'],
                 'water_detected': wd
+            })
+
+        if serializer.is_valid():
+            serializer.save()
+            return HttpResponse("Uploaded")
+        else:
+            print("Data not valid")
+            return HttpResponse("Upload failed")
+
+    return HttpResponse('')
+
+@csrf_exempt
+def post_mail(request):
+    if request.method == "POST":
+        print("New mail incoming...")
+
+        received_data = json.loads(request.body)
+
+        if int(received_data['Detected']) > 0:
+            md = True
+        else:
+            md = False
+
+        serializer = mailserializer(
+            data = {
+                'date': datetime.datetime.now(),
+                'detected': received_data['Detected']
             })
 
         if serializer.is_valid():
