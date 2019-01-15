@@ -30,5 +30,6 @@ urlpatterns = [
     path('upload/temp/', views.post_temp, name='temp'),
     path('upload/water/', views.post_water, name='level'),
     path('upload/waterdetected/', views.post_water_detected, name='detected'),
+    path('upload/mail/', views.post_mail, name='mail'),
     path(r'api/', include(router.urls))
 ]
