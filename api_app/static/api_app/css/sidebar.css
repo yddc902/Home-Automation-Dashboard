@@ -152,7 +152,12 @@ a[data-toggle="collapse"] {
 
     /* Adjust the dropdown links padding*/
     #sidebar ul ul a {
+        font-size: .75em !important;
         padding: 10px !important;
+    }
+
+    ul ul a {
+      font-size: 0.65em;
     }
 
     /* Changing the arrow position to bottom center position,

@@ -42,6 +42,8 @@
   .column {
     width: 100%;
     margin-bottom: 40%;
+    margin-left: 15%;
+    margin-right: 15%;
   }
   .card-container {
     height: 80px;
