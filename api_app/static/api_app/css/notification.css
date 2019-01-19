@@ -25,6 +25,12 @@
   margin: auto;
 }
 
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin:auto;
+}
+
 #badgeGrid a i {
   display: block;
   font-size: 150px;
