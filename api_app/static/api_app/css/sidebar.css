@@ -108,8 +108,8 @@ a[data-toggle="collapse"] {
 /** Adjust values when screen is smaller**/
 @media only screen and (max-width: 1000px) {
     #sidebar {
-      min-width: 80px;
-      max-width: 80px;
+      min-width: 100px;
+      max-width: 100px;
       text-align: center;
       /*margin-left: -80px !important;*/
     }
@@ -140,7 +140,7 @@ a[data-toggle="collapse"] {
         display: block;
         padding: 12px;
         text-align: center;
-        font-size: 0.75em;
+        font-size: 0.85em;
         }
 
     #sidebar ul li a i {
@@ -152,7 +152,7 @@ a[data-toggle="collapse"] {
 
     /* Adjust the dropdown links padding*/
     #sidebar ul ul a {
-        font-size: .75em !important;
+        font-size: .8em !important;
         padding: 10px !important;
     }
 
