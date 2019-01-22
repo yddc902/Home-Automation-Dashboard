@@ -53,7 +53,7 @@ body {
 #sidebar .link-container {
   background: #7386D5;
   margin: auto;
-  padding-left: 10px;
+  /**padding-left: 10px;*/
   width: 50%;
 }
 
