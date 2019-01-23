@@ -36,4 +36,28 @@ setTimeout(function() {
       })
     })
   })
-}, 1000);
+
+  $(function getTemp() {
+    $.getJSON('/api/temperatures/mancave', {
+      format: "json"
+    }).done(function(data){
+      console.log(data);
+      $.each(data, function(i, item) {
+        console.log(item.fields.temperature_f);
+        $("#mancave").append(item.fields.temperature_f + '&#8457;');
+      })
+    })
+  })
+
+  $(function getTemp() {
+    $.getJSON('/api/temperatures/bedroom', {
+      format: "json"
+    }).done(function(data){
+      console.log(data);
+      $.each(data, function(i, item) {
+        console.log(item.fields.temperature_f);
+        $("#mancave").append(item.fields.temperature_f + '&#8457;');
+      })
+    })
+  })
+}, 0);
