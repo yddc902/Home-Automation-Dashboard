@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from api_app import views, viewsets
+from api_app import views, viewsets, endpoints
 
 from rest_framework import routers
 
@@ -27,9 +27,14 @@ router.register(r'DetectionModel', viewsets.DetectionViewSet)
 urlpatterns = [
     path('', views.index, name='index'),
     path('admin/', admin.site.urls),
-    path('upload/temp/', views.post_temp, name='temp'),
-    path('upload/water/', views.post_water, name='level'),
-    path('upload/waterdetected/', views.post_water_detected, name='detected'),
-    path('upload/mail/', views.post_mail, name='mail'),
-    path(r'api/', include(router.urls))
+
+    path('upload/temp/', views.post_temp, name='upload_temp'),
+    path('upload/water/', views.post_water, name='upload_level'),
+    path('upload/waterdetected/', views.post_water_detected, name='upload_detected'),
+    path('upload/mail/', views.post_mail, name='upload_mail'),
+
+    path(r'api/', include(router.urls)),
+    path(r'api/room/<str:room>',endpoints.str_test, name='str_test'),
+    path(r'api/temperatures/<str:room>', endpoints.last_temp, name='api_temp'),
+    path(r'api/water', endpoints.water_level, name='api_water')
 ]
