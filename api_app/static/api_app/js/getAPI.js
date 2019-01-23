@@ -23,6 +23,9 @@ setTimeout(function() {
         $("#kitchen").append(item.fields.temperature_f + '&#8457;');
       })
     })
+    .error(function() {
+      $("#kitchen").append("Err");
+    })
   })
 
   $(function getTemp() {
