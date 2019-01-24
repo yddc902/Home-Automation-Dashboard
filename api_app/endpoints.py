@@ -12,13 +12,13 @@ import datetime
 import json
 
 def last_temp(request,room):
-    obj = TempModel.objects.filter(room__contains=room).order_by('-id')[:1]
+    obj = TempModel.objects.filter(room__icontains=room).order_by('-id')[:1]
     json_serializer = serializers.get_serializer("json")()
     data = json_serializer.serialize(obj, ensure_ascii=False)
     return HttpResponse(data)
 
 def water_level(request):
-    obj = TempModel.objects.filter(room__contains="LivingRoom").order_by('-id')[:1]
+    obj = TempModel.objects.filter(room__icontains="LivingRoom").order_by('-id')[:1]
     print(obj)
     json_serializer = serializers.get_serializer("json")()
     data = json_serializer.serialize(obj, ensure_ascii=False)
