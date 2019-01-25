@@ -12,7 +12,7 @@
   })
 })*/
 
-setTimeout(function() {
+setInterval(function() {
   $(function getTemp() {
     $.getJSON('/api/temperatures/kitchen', {
       format: "json"
@@ -20,11 +20,11 @@ setTimeout(function() {
       console.log(data);
       $.each(data, function(i, item) {
         console.log(item.fields.temperature_f);
-        $("#kitchen").append(item.fields.temperature_f + '&#8457;');
+        $("#kitchen").empty().append(item.fields.temperature_f + '&#8457;');
       })
     })
     .error(function() {
-      $("#kitchen").append("Err");
+      $("#kitchen").append("Err")
     })
   })
 
@@ -35,7 +35,7 @@ setTimeout(function() {
       console.log(data);
       $.each(data, function(i, item) {
         console.log(item.fields.temperature_f);
-        $("#livingroom").append(item.fields.temperature_f + '&#8457;');
+        $("#livingroom").empty().append(item.fields.temperature_f + '&#8457;');
       })
     })
   })
@@ -47,7 +47,7 @@ setTimeout(function() {
       console.log(data);
       $.each(data, function(i, item) {
         console.log(item.fields.temperature_f);
-        $("#mancave").append(item.fields.temperature_f + '&#8457;');
+        $("#mancave").empty().append(item.fields.temperature_f + '&#8457;');
       })
     })
   })
@@ -59,8 +59,8 @@ setTimeout(function() {
       console.log(data);
       $.each(data, function(i, item) {
         console.log(item.fields.temperature_f);
-        $("#mancave").append(item.fields.temperature_f + '&#8457;');
+        $("#mancave").empty().append(item.fields.temperature_f + '&#8457;');
       })
     })
   })
-}, 0);
+}, 15000);
