@@ -16,7 +16,7 @@
         <div class="jumbotron" id="notification-grid">
           <a class="icon-centered" href="#">
             <i class="far fa-envelope"></i>
-            <p>Mail arrived at:<p>
+            <p id="mail">Mail arrived at:<p>
           </a>
         </div>
       </div>
@@ -26,7 +26,7 @@
         <div class="jumbotron" id="notification-grid">
           <a class="icon-centered" href="#">
             <i class="fas fa-tint"></i>
-            <p>Water detected<p>
+            <p id="basement_water">Water detected<p>
           </a>
         </div>
       </div>
@@ -66,7 +66,8 @@
         <div class="jumbotron" id="notification-grid">
           <a class="icon-centered" href="#">
             <i class="fas fa-door-open"></i>
-            <p>Open door detected<p>
+            <i class="fas fa-door-closed" style="display: none;"></i>
+            <p id="doors">Open door detected<p>
           </a>
         </div>
       </div>
@@ -76,7 +77,10 @@
     <div class="column">
       <div class="card-container">
         <div class="jumbotron" id="notification-grid">
-          <p>Temperatures</p>
+          <a class="icon-centered" href="#">
+            <i class="fas fa-dog"></i>
+            <p id="dogbowl">Dog Bowl Level:</p>
+          </a>
         </div>
       </div>
     </div>
