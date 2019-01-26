@@ -59,7 +59,12 @@ void loop() {
   Serial.println("%");
 
   if(WiFi.status()==WL_CONNECTED) {
-    commit_temperature();
+    if (temp > 0 ) && {hum > 0} {
+      commit_temperature();
+    } else {
+      Serial.println("No readings from sensor...")
+      Serial.println("Trying again...")
+    }
   } else {
     Serial.println("WiFi not connected");
   }
