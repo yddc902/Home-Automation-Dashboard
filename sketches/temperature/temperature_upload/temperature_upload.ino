@@ -5,16 +5,17 @@
 #include <ESP8266HTTPClient.h>
 
 //Constants
-const char* ssid     = "Coffman";         // The SSID (name) of the Wi-Fi network you want to connect to
-const char* password = "rem35621";     // The password of the Wi-Fi network
+const char* ssid     = "Coffman";                                               // The SSID (name) of the Wi-Fi network you want to connect to
+const char* password = "rem35621";                                              // The password of the Wi-Fi network
 const char server[] = "192.168.0.113";
 const int upload_seconds = 30;
-const String room = "Kitchen";
-const String connector = "http://192.168.0.113:8000/upload/temp/"; //Port must be in URL
+const String room = "Kitchen";                                                  //Change this value for each room, must match the model field
+const String connector = "http://www.rcoff.me/api/temperatures/kitchen";        //Port must be in URL
 
 #define DHTPIN  4
 #define DHTTYPE DHT22
 
+//Initialize libraries as variables
 DHT dht(DHTPIN, DHTTYPE);
 WiFiClient client;
 HTTPClient http;
@@ -44,7 +45,7 @@ void setup() {
 }
 
 void loop() {
-  temp = dht.readTemperature(true);
+  temp = dht.readTemperature(true);                                             //True for fahrenheit, blank or false for Celsius
   hum  = dht.readHumidity();
 
   // Print out temperature data
