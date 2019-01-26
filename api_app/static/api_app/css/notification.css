@@ -18,6 +18,19 @@
   padding-top: 10px;
 }
 
+#badgeGrid a i {
+  display: block;
+  font-size: 150px;
+  color: #c5c7ca;
+  text-align: center;
+}
+
+#badgeGrid a p {
+  text-align: center;
+  display: block;
+  color: inherit;
+}
+
 .card-container {
   height: 280px;
   width: 100%;
@@ -46,20 +59,16 @@
   align-content: center;
 }
 
-#badgeGrid a i {
-  display: block;
-  font-size: 150px;
-  color: #c5c7ca;
-  text-align: center;
-}
-
-#badgeGrid a p {
-  text-align: center;
-  display: block;
-  color: inherit;
-}
-
 @media only screen and (max-width: 1000px) {
+  #temp-grid {
+    width: 50%;
+    padding: 0%;
+  }
+
+  #temp-grid i {
+    font-size: 25px !important;
+  }
+
   .column {
     width: 100%;
     margin-bottom: 40%;
