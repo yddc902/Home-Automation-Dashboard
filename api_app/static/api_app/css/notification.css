@@ -4,6 +4,7 @@
   height: 280px;
   padding: .75rem;
   margin-bottom: 2rem;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 5px 6px 9px 0 rgba(0, 0, 0, 0.19);
 }
 
 #temp-grid {

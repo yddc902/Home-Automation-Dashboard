@@ -68,6 +68,11 @@ body {
   padding-top: 15px;
 }
 
+/*#sidebar .link-container a i:hover {
+  color: #7386D5;
+  background: #fff;
+}*/
+
 #sidebar ul.components {
     padding: 20px 0;
     border-bottom: 1px solid #47748b;
