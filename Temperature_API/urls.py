@@ -23,6 +23,7 @@ router = routers.DefaultRouter()
 router.register(r'TempModel', viewsets.TempViewSet)
 router.register(r'WaterModel', viewsets.WaterViewSet)
 router.register(r'DetectionModel', viewsets.DetectionViewSet)
+router.register(r'MailModel', viewsets.MailViewSet)
 
 urlpatterns = [
     path('', views.index, name='index'),

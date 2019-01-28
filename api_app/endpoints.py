@@ -18,7 +18,7 @@ def last_temp(request,room):
     return HttpResponse(data)
 
 def water_level(request):
-    obj = TempModel.objects.filter(room__icontains="LivingRoom").order_by('-id')[:1]
+    obj = WaterModel.objects.all().order_by('-id')[:1]
     print(obj)
     json_serializer = serializers.get_serializer("json")()
     data = json_serializer.serialize(obj, ensure_ascii=False)
