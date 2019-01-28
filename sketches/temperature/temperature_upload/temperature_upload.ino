@@ -7,10 +7,10 @@
 //Constants
 const char* ssid     = "Coffman";                                               // The SSID (name) of the Wi-Fi network you want to connect to
 const char* password = "rem35621";                                              // The password of the Wi-Fi network
-const char server[] = "192.168.0.113";
+const char server[] = "www.rcoff.me";
 const int upload_seconds = 30;
 const String room = "Kitchen";                                                  //Change this value for each room, must match the model field
-const String connector = "http://www.rcoff.me/api/temperatures/kitchen";        //Port must be in URL
+const String connector = "http://www.rcoff.me/upload/temp/";                     //Port must be in URL
 
 #define DHTPIN  4
 #define DHTTYPE DHT22
@@ -36,10 +36,11 @@ void setup() {
 
   Serial.println('\n');
   Serial.println("Attempting to connect to server...");
-  if (client.connect(server, 8000)){
+  if (client.connect(server, 80)){
     Serial.println("Connected to server!");
   } else{
     Serial.println("Failed to connect :(");
+    Serial.println("");
     return;
   }
 }
@@ -59,11 +60,12 @@ void loop() {
   Serial.println("%");
 
   if(WiFi.status()==WL_CONNECTED) {
-    if (temp > 0 ) && {hum > 0} {
+    if( (temp > 0 ) && (hum > 0) ) {
       commit_temperature();
     } else {
-      Serial.println("No readings from sensor...")
-      Serial.println("Trying again...")
+      Serial.println("No readings from sensor...");
+      Serial.println("Trying again...");
+      Serial.println("");
     }
   } else {
     Serial.println("WiFi not connected");
@@ -90,11 +92,12 @@ void commit_temperature() {
   //Send data to API
   String PostData;
   if (http.begin(connector)) {
-    PostData = "{\"Room\": \"" + room + "\",\"Temp\": \"" + String(temp) + "\",\"Humidity\": \"" + String(hum) + "\"}";
+    PostData = "{\"Room\":\"" + room + "\",\"Temp\":\"" + String(temp) + "\",\"Humidity\": \"" + String(hum) + "\"}";
 
     http.addHeader("Content-Type", "application/json");
     http.POST(PostData);
     Serial.println("Sending data to server...");
+    //Serial.println(PostData);
 
     if(String(Serial.println(http.getString())) == String("")) {
       Serial.println("Failed to send data...");

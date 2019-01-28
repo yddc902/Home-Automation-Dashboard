@@ -7,10 +7,10 @@
 //Constants
 const char* ssid     = "Coffman";         // The SSID (name) of the Wi-Fi network you want to connect to
 const char* password = "rem35621";     // The password of the Wi-Fi network
-const char server[] = "192.168.0.113";
+const char server[] = "www.rcoff.me";
 const int upload_seconds = 30;
 const String room = "Kitchen";
-const String connector = "http://192.168.0.113:8000/upload/water/"; //Port must be in URL
+const String connector = "http://www.rcoff.me/upload/water/"; //Port must be in URL
 const analogpin = A0;
 
 WiFiClient client;
@@ -29,7 +29,7 @@ void setup() {
 
   Serial.println('\n');
   Serial.println("Attempting to connect to server...");
-  if (client.connect(server, 8000)){
+  if (client.connect(server, 80)){
     Serial.println("Connected to server!");
   } else{
     Serial.println("Failed to connect :(");
