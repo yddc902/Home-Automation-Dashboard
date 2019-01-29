@@ -20,11 +20,13 @@ function getMail() {
     console.log(data);
     $.each(data, function(i, item) {
       console.log(item.fields.mail_detected);
-      $("#mail").empty().append('Mail arrived: ' + item.fields.mail_detected);
+      //$("#mail").empty().append('Mail arrived: ' + item.fields.mail_detected);
       //if statement to check for true
-      //if(item.fields.mail_detected=="true") {
-      //  $("#mail").empty().append(item.fields.date);
-      //}
+      if (item.fields.mail_detected = "true") {
+        $("#mail").empty().append("Mail arrived at: " + item.fields.date);
+      } else {
+        $("#mail").empty().append("Mail has not arrived");
+      }
     })
   })
 }
