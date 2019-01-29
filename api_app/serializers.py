@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User, Group
-from .models import TempModel, WaterModel, DetectionModel, MailModel
+from .models import TempModel, WaterModel, DetectionModel, MailModel, OpenModel
 from rest_framework import serializers
 
 #Serializer to access the 'Users' database. This is Django's built in user database
@@ -51,10 +51,24 @@ class mailserializer(serializers.ModelSerializer):
         model = MailModel
         fields = '__all__'
 
-    def create(slef, validated_data):
+    def create(self, validated_data):
         new_mail = MailModel(
             date = validated_data['date'],
             mail_detected = validated_data['detected'])
 
         new_mail.save()
         return new_mail
+
+class openserializer(serializers.ModelSerializer):
+    class Meta:
+        model = OpenModel
+        fields = '__all__'
+
+    def create(self, validated_data):
+        new_open = OpenModel(
+            date = validated_data['date'],
+            sensor_id = validated_data['sensor_id'],
+            sensor_state = validated_data['sensor_state'])
+
+        new_open.save()
+        return new_open

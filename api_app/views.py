@@ -101,6 +101,9 @@ def post_water_detected(request):
 
 @csrf_exempt
 def post_mail(request):
+    #Copied from post_water_detected
+    #Modify for actual mail sensors
+    
     if request.method == "POST":
         print("New mail incoming...")
 

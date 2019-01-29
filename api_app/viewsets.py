@@ -1,6 +1,6 @@
-from .models import TempModel, WaterModel, DetectionModel, MailModel
+from .models import TempModel, WaterModel, DetectionModel, MailModel, OpenModel
 from rest_framework import viewsets
-from .serializers import tempserializer, waterserializer, detectionserializer, mailserializer
+from .serializers import tempserializer, waterserializer, detectionserializer, mailserializer, openserializer
 
 class TempViewSet(viewsets.ModelViewSet):
     queryset = TempModel.objects.all()
@@ -17,3 +17,7 @@ class DetectionViewSet(viewsets.ModelViewSet):
 class MailViewSet(viewsets.ModelViewSet):
     queryset = MailModel.objects.all()
     serializer_class = mailserializer
+
+class OpenViewSet(viewsets.ModelViewSet):
+    queryset = OpenModel.objects.all()
+    serializer_class = openserializer

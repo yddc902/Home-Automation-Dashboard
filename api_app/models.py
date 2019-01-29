@@ -29,3 +29,8 @@ class DetectionModel(models.Model):
 class MailModel(models.Model):
     date = models.DateTimeField(auto_now=False)
     mail_detected = models.BooleanField()
+
+class OpenModel(models.Model):
+    date = models.DateTimeField(auto_now=False)
+    sensor_id = models.CharField(max_length=30)
+    sensor_state = models.CharField(max_length=6)
