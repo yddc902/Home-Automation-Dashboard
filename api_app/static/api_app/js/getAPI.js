@@ -13,11 +13,30 @@ function getTemp(room) {
   })
 }
 
+function getMail() {
+  $.getJSON('/api/mail', {
+    format: "json"
+  }).done(function(data){
+    console.log(data);
+    $.each(data, function(i, item) {
+      console.log(item.fields.mail_detected);
+      $("#mail").empty().append('Mail arrived: ' + item.fields.mail_detected);
+      //if statement to check for true
+      //if(item.fields.mail_detected=="true") {
+      //  $("#mail").empty().append(item.fields.date);
+      //}
+    })
+  })
+}
+
+
+
 //Retrieve data as soon as the page loads
 getTemp("kitchen");
 getTemp("mancave");
 getTemp("livingroom");
 getTemp("bedroom");
+getMail();
 
 //Refresh data every 15 seconds
 setInterval( function() {
@@ -25,4 +44,5 @@ setInterval( function() {
   getTemp("mancave");
   getTemp("livingroom");
   getTemp("bedroom");
+  getMail();
 }, refreshInterval * 1000);

@@ -30,6 +30,12 @@ def mail_delivered(request):
     data = json_serializer.serialize(obj, ensure_ascii=False)
     return HttpResponse(data)
 
+def water_detection(request):
+    obj = DetectionModel.objects.all().order_by('-id')[:1]
+    json_serializer = serializers.get_serializer("json")()
+    data = json_serializer.serialize(obj, ensure_ascii=False)
+    return HttpResponse(data)
+
 def str_test(request,room):
     return HttpResponse(room)
 

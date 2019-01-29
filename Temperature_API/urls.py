@@ -37,5 +37,7 @@ urlpatterns = [
     path(r'api/', include(router.urls)),
     path(r'api/room/<str:room>',endpoints.str_test, name='str_test'),
     path(r'api/temperatures/<str:room>', endpoints.last_temp, name='api_temp'),
-    path(r'api/water', endpoints.water_level, name='api_water')
+    path(r'api/water', endpoints.water_level, name='api_water'),
+    path(r'api/mail', endpoints.mail_delivered, name='api_mail'),
+    path(r'api/detection', endpoints.water_detection, name="api_detected")
 ]
