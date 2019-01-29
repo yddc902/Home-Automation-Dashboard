@@ -12,6 +12,9 @@ def index(request):
     return render(request, "index.html") #HttpResponse('Connected')
     #return HttpResponse("Connected")
 
+def settings(request):
+    return render(request, "settings.html")
+
 @csrf_exempt
 def post_temp(request):
     if request.method == "POST":
@@ -103,7 +106,7 @@ def post_water_detected(request):
 def post_mail(request):
     #Copied from post_water_detected
     #Modify for actual mail sensors
-    
+
     if request.method == "POST":
         print("New mail incoming...")
 

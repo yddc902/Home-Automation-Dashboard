@@ -24,7 +24,7 @@
         <div class="sidebar-divider-light"></div>
 
         <ul class="list-unstyled componenets">
-          <li class="active">
+          <li id="home-link">
             <a href="{% url 'index' %}">
               <i class="fas fa-home"></i>
               Home
@@ -53,7 +53,7 @@
               </li>
             </ul>
           </li>
-          <li>
+          <li id="projects-link">
             <a href="#projectSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
               <i class="fas fa-project-diagram"></i>
               Projects
@@ -64,16 +64,22 @@
               </li>
             </ul>
           </li>
-          <li>
+          <li id="about-link">
             <a href="#">
               <i class="far fa-meh-blank"></i>
               About
             </a>
           </li>
-          <li>
+          <li id="contact-link">
             <a href="#">
               <i class="far fa-envelope"></i>
               Contact
+            </a>
+          </li>
+          <li id="settings-link" class="">
+            <a href="{% url 'settings' %}">
+              <i class="fas fa-cog"></i>
+              Settings
             </a>
           </li>
         </ul>

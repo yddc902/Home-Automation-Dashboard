@@ -1,10 +1,12 @@
 /****************************************************************
 **Referenced from https://bootstrapious.com/p/bootstrap-sidebar**
 *****************************************************************/
+@import url('https://fonts.googleapis.com/css?family=Raleway');
 
 body {
   margin: 0px;
   padding-bottom: 0px;
+  font-family: 'Raleway', sans-serif
 }
 
 .wrapper {

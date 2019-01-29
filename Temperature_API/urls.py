@@ -24,9 +24,11 @@ router.register(r'TempModel', viewsets.TempViewSet)
 router.register(r'WaterModel', viewsets.WaterViewSet)
 router.register(r'DetectionModel', viewsets.DetectionViewSet)
 router.register(r'MailModel', viewsets.MailViewSet)
+router.register(r'OpenModel', viewsets.OpenViewSet)
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('settings/', views.settings, name='settings'),
     path('admin/', admin.site.urls),
 
     path('upload/temp/', views.post_temp, name='upload_temp'),
