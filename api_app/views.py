@@ -15,6 +15,9 @@ def index(request):
 def settings(request):
     return render(request, "settings.html")
 
+def charts(request):
+    return render(request, "chart_test.html")
+
 @csrf_exempt
 def post_temp(request):
     if request.method == "POST":
