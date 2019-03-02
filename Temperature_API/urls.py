@@ -29,7 +29,8 @@ router.register(r'OpenModel', viewsets.OpenViewSet)
 urlpatterns = [
     path('', views.index, name='index'),
     path('settings/', views.settings, name='settings'),
-    path('charts/', views.charts, name='charts'),
+    path('charts/', views.charts, name='jscharts'),
+
     path('admin/', admin.site.urls),
 
     path('upload/temp/', views.post_temp, name='upload_temp'),
