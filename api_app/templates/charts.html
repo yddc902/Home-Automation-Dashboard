@@ -6,11 +6,13 @@
 {% endblock %}
 
 {% block content %}
-<h1>Chart Test</h1>
-<p>Connect to models to display chart data</p>
-
-<div class="chart-container">
-  <canvas id="kitchen-temp" width="300" height="300"></canvas>
+<div class="container-fluid">
+  <div class="jumbotron">
+    <h1>{{room}}</h1>
+    <div class="chart-container">
+      <canvas id="{{ room }}-temp" width="50%" height="50%"></canvas>
+    </div>
+  </div>
 </div>
 {% endblock %}
 

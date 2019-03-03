@@ -37,22 +37,22 @@
       <div class="card-container">
         <div class="jumbotron" id="notification-grid">
           <div class="flex-container">
-            <a id="temp-grid" href="/api/TempModel/">
+            <a id="temp-grid" href="{% url 'temp_charts' 'kitchen' %}">
               <p>Kitchen</p>
               <i class="fas fa-thermometer-three-quarters"></i>
               <p id="kitchen"></p>
             </a>
-            <a id="temp-grid" href="/api/TempModel/">
+            <a id="temp-grid" href="{% url 'temp_charts' 'livingroom' %}">
               <p>Living Room</p>
               <i class="fas fa-thermometer-three-quarters"></i>
               <p id="livingroom"></p>
             </a>
-            <a id="temp-grid" href="/api/TempModel/">
+            <a id="temp-grid" href="{% url 'temp_charts' 'mancave' %}">
               <p>Man Cave</p>
               <i class="fas fa-thermometer-three-quarters"></i>
               <p id="mancave"></p>
             </a>
-            <a id="temp-grid" href="/api/TempModel/">
+            <a id="temp-grid" href="{% url 'temp_charts' 'bedroom' %}">
               <p>Bedroom</p>
               <i class="fas fa-thermometer-three-quarters"></i>
               <p id="bedroom"></p>
