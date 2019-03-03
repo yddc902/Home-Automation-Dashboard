@@ -18,9 +18,8 @@ def settings(request):
 def charts(request):
     return render(request, "chart_test.html")
 
-def temp_charts(request):
-    return render(request, "charts.html")
-
+def temp_charts(request, room):
+    return render(request, "charts.html", {'room': room})
 
 @csrf_exempt
 def post_temp(request):
