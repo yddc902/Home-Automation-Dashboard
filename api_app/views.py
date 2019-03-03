@@ -18,6 +18,10 @@ def settings(request):
 def charts(request):
     return render(request, "chart_test.html")
 
+def temp_charts(request):
+    return render(request, "charts.html")
+
+
 @csrf_exempt
 def post_temp(request):
     if request.method == "POST":
@@ -28,6 +32,7 @@ def post_temp(request):
 
         print(datetime.datetime.now())
 
+        setpoint = 68 #Set the setpoint variable
         received_data = json.loads(request.body)
         print(received_data)
         print(received_data['Room'])
@@ -39,7 +44,8 @@ def post_temp(request):
                 'date': datetime.datetime.now(),
                 'room': received_data['Room'],
                 'temperature_f': received_data['Temp'],
-                'humidity': received_data['Humidity']
+                'temperature_setpoint': setpoint,
+                'humidity': received_data['Humidity'],
                 })
 
         if serializer.is_valid():

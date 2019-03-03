@@ -36,6 +36,12 @@ def water_detection(request):
     data = json_serializer.serialize(obj, ensure_ascii=False)
     return HttpResponse(data)
 
+def temp_test(request, room, datapoints):
+    obj = TempModel.objects.filter(room__icontains=room).order_by('-id')[:datapoints]
+    json_serializer = serializers.get_serializer("json")()
+    data = json_serializer.serialize(obj,ensure_ascii=False)
+    return HttpResponse(data)
+
 def str_test(request,room):
     return HttpResponse(room)
 
