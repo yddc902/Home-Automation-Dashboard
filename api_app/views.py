@@ -21,6 +21,9 @@ def charts(request):
 def temp_charts(request, room):
     return render(request, "charts.html", {'room': room})
 
+def all_temp_charts(request):
+    return render(request, "charts_all.html")
+
 @csrf_exempt
 def post_temp(request):
     if request.method == "POST":

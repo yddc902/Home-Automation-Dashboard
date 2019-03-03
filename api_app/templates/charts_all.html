@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static '/api_app/css/charts.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <div class="jumbotron">
+    <h1>Kitchen</h1>
+    <div class="chart-container">
+      <canvas id="kitchen-temp" width="50%" height="50%"></canvas>
+    </div>
+  </div>
+
+  <div class="jumbotron">
+    <h1>Living Room</h1>
+    <div class="chart-container">
+      <canvas id="livingroom-temp" width="50%" height="50%"></canvas>
+    </div>
+  </div>
+
+  <div class="jumbotron">
+    <h1>Man Cave</h1>
+    <div class="chart-container">
+      <canvas id="mancave-temp" width="50%" height="50%"></canvas>
+    </div>
+  </div>
+
+  <div class="jumbotron">
+    <h1>Bedroom</h1>
+    <div class="chart-container">
+      <canvas id="bedroom-temp" width="50%" height="50%"></canvas>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block jquery %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js" type="text/javascript"></script>
+<script src="{% static '/api_app/js/charts.js' %}" type="text/javascript"></script>
+{% endblock %}
+
+</blockquote>

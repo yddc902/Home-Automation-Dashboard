@@ -30,8 +30,8 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('settings/', views.settings, name='settings'),
     path('charts/', views.charts, name='jscharts'),
+    path('charts/temperature', views.all_temp_charts, name="all_temp"),
     path('charts/temperature/<str:room>', views.temp_charts, name="temp_charts"),
-    path('charts/temperature/all', views.temp_charts, name="all_temp"),
 
     path('admin/', admin.site.urls),
 
