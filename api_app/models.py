@@ -15,7 +15,7 @@ class TempModel(models.Model):
     date = models.DateTimeField(auto_now=False)
     room = models.CharField(max_length=20, choices=room_choices)
     temperature_f = models.FloatField(max_length=5)
-    temperature_setpoint = models.FloatField(max_length=5)
+    temperature_setpoint = models.FloatField(max_length=5, default=68)
     #temperature_outside = models.FloatField(max_length=5)
     humidity = models.FloatField(max_length=5)
 
