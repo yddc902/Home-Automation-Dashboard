@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static '/api_app/css/notification.css' %}">
+<link rel="stylesheet" href="{% static '/api_app/css/charts.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container" id="badgeGrid">
+  <div class="row">
+    <div class="column">
+      <div class="jumbotron">
+        <div class="card-container" id="notification-grid">
+          <h1>Kitchen</h1>
+          <div class="chart-container">
+            <canvas id="kitchen-temp"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="jumbotron">
+        <div class="card-container" id="notification-grid">
+          <h1>Living Room</h1>
+          <div class="chart-container">
+            <canvas id="livingroom-temp"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <div class="card-container jumbotron" id="notification-grid">
+        <h1>Man Cave</h1>
+        <div class="chart-container">
+          <canvas id="mancave-temp"></canvas>
+        </div>
+      </div>
+
+      <div class="jumbotron">
+        <h1>Bedroom</h1>
+        <div class="card-container chart-container" id="notification-grid">
+          <canvas id="bedroom-temp"></canvas>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block jquery %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js" type="text/javascript"></script>
+<script src="{% static '/api_app/js/charts.js' %}" type="text/javascript"></script>
+{% endblock %}
+
+</blockquote>
