@@ -1,14 +1,11 @@
-$(document).ready(function() {
-  var chartValues = chartTemps_all();
-});
-
-function chartTemps_all() {
+function chartTemps_all(datapoints) {
   //Get API data
   $.getJSON('/api/TempModel/?format=json', {
     format: "json"
   }).done(function(data){
     console.log(data);
 
+    //why e? I should rename this
     var newDateArr = data.map(function(e) {
       return e.date;
     });
@@ -61,6 +58,13 @@ function new_TempChart(labels, data) {
       }]
     },
     options: {
+      scales: {
+        xAxes: [{
+          scaleLabel: {
+            display: false,
+          }
+        }]
+      },
       title: {
         display: true,
         text: "All Temperatures"
