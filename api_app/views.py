@@ -8,9 +8,7 @@ import datetime
 import json
 
 def index(request):
-    #DetectionModel.filter(date=datetime.today())
     return render(request, "index.html") #HttpResponse('Connected')
-    #return HttpResponse("Connected")
 
 def settings(request):
     return render(request, "settings.html")
