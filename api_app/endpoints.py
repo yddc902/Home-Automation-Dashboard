@@ -44,9 +44,3 @@ def temp_chart_by_room(request, room, datapoints):
 
 def str_test(request,room):
     return HttpResponse(room)
-
-"""
-class ListTemp(APIView):
-    def get(self, request, format=None):
-        temp = [TempModel.temperature_f for temp in TempModel]
-"""
