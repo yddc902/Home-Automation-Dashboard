@@ -3,7 +3,7 @@ from rest_framework import viewsets
 from .serializers import tempserializer, waterserializer, detectionserializer, mailserializer, openserializer
 
 class TempViewSet(viewsets.ModelViewSet):
-    queryset = TempModel.objects.all().order_by('-id')
+    queryset = TempModel.objects.all().order_by('-id')[:30] #TODO Make this Dynamic
     serializer_class = tempserializer
 
 class WaterViewSet(viewsets.ModelViewSet):
