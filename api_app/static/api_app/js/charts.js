@@ -14,34 +14,25 @@ function chartTemps_all(datapoints) {
       return e.temperature_f;
     });
 
-    //console.log(newDateArr);
-    //console.log(newTempArr);
-
     new_TempChart(newDateArr, newTempArr);
   });
 }
 
-function chartTemps(room) {
-  $.getJSON('/api/TempModel/?format=json', {
-    format: "json"
+function chartTemps(room, datapoints) {
+  $.getJSON('/api/temperatures/' + room + '/' + datapoints, {
   }).done(function(data){
-    //console.log(data);
+    console.log(data);
 
-    //Init empty arrays for date and temp
-    var dateArr = [];
-    var tempArr = [];
+    var newDateArr = data.map(function(e) {
+      return e.date;
+    });
 
-    $.each(data, function(i, item) {
-      //console.log(item);
-      if (item.room = room) {
-        //console.log(item.date);
-        //console.log(item.temperature_f);
+    var newTempArr = data.map(function(e) {
+      return e.temperature_f;
+    });
 
-        dateArr.push(item.date);
-        tempArr.push(item.temperature_f);
-      }
-    })
-  })
+    new_TempChart(newDateArr, newTempArr);
+  });
 }
 
 function new_TempChart(labels, data) {
@@ -60,9 +51,7 @@ function new_TempChart(labels, data) {
     options: {
       scales: {
         xAxes: [{
-          scaleLabel: {
-            display: false,
-          }
+          display: false
         }]
       },
       title: {
