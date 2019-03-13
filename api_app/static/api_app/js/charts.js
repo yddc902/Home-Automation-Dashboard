@@ -14,7 +14,7 @@ function chartTemps_all(datapoints) {
       return e.temperature_f;
     });
 
-    new_TempChart(newDateArr, newTempArr);
+    new_TempChart(newDateArr, newTempArr, "All Temperatures");
   });
 }
 
@@ -31,11 +31,11 @@ function chartTemps(room, datapoints) {
       return e.temperature_f;
     });
 
-    new_TempChart(newDateArr, newTempArr);
+    new_TempChart(newDateArr, newTempArr, room);
   });
 }
 
-function new_TempChart(labels, data) {
+function new_TempChart(labels, data, room) {
   //Create the chart
   var ctx = document.getElementById("kitchen-temp").getContext('2d');
 
@@ -56,7 +56,7 @@ function new_TempChart(labels, data) {
       },
       title: {
         display: true,
-        text: "All Temperatures"
+        text: room
       }
     }
   });
