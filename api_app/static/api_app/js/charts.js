@@ -37,7 +37,7 @@ function chartTemps(room, datapoints) {
 
 function new_TempChart(labels, data, room) {
   //Create the chart
-  var ctx = document.getElementById("kitchen-temp").getContext('2d');
+  var ctx = document.getElementById(room + "-temp").getContext('2d');
 
   var tempChart = new Chart(ctx, {
     type: 'line',
