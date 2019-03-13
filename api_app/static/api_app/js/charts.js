@@ -1,6 +1,6 @@
 function chartTemps_all(datapoints) {
   //Get API data
-  $.getJSON('/api/TempModel/?format=json', {
+  $.getJSON('/api/TempModel/', {
     format: "json"
   }).done(function(data){
     console.log(data);
