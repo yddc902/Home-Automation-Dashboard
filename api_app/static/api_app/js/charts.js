@@ -23,12 +23,14 @@ function chartTemps(room, datapoints) {
   }).done(function(data){
     console.log(data);
 
-    var newDateArr = data.map(function(e) {
-      return e.date;
+    var newDateArr = $.map(data, function(e) {
+      console.log(e.fields.date);
+      return e.fields.date;
     });
 
-    var newTempArr = data.map(function(e) {
-      return e.temperature_f;
+    var newTempArr = $.map(data, function(e) {
+      console.log(e.fields.temperature_f)
+      return e.fields.temperature_f;
     });
 
     new_TempChart(newDateArr, newTempArr, room);
