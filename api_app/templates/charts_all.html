@@ -21,7 +21,7 @@
     <div class="column">
       <div class="card-container">
         <div class="jumbotron" id="notification-grid">
-          <canvas id="kitchen-temp"></canvas>
+          <canvas id="mancave-temp"></canvas>
         </div>
       </div>
     </div>
@@ -30,14 +30,14 @@
     <div class="column">
       <div class="card-container">
         <div class="jumbotron" id="notification-grid">
-          <canvas id="kitchen-temp"></canvas>
+          <canvas id="livingroom-temp"></canvas>
         </div>
       </div>
     </div>
     <div class="column">
       <div class="card-container">
         <div class="jumbotron" id="notification-grid">
-          <canvas id="kitchen-temp"></canvas>
+          <canvas id="bedroom-temp"></canvas>
         </div>
       </div>
     </div>
@@ -46,14 +46,14 @@
     <div class="column">
       <div class="card-container">
         <div class="jumbotron" id="notification-grid">
-          <canvas id="kitchen-temp"></canvas>
+          <canvas id="other-temp"></canvas>
         </div>
       </div>
     </div>
     <div class="column">
       <div class="card-container">
         <div class="jumbotron" id="notification-grid">
-          <canvas id="kitchen-temp"></canvas>
+          <canvas id="other-temp"></canvas>
         </div>
       </div>
     </div>
@@ -70,7 +70,10 @@
 <script type="text/javascript">
   $(window).on('load', function () {
     $("#temp-link").attr('class','active');
-    var chartValues = chartTemps_all(30);
+    var KitchenChart = chartTemps("kitchen", 30);
+    var LivingRoomChart = chartTemps("livingroom", 30);
+    var BedroomChart = chartTemps("bedroom", 30);
+    var ManCaveChart = chartTemps("mancave", 30);
   })
 </script>
 
