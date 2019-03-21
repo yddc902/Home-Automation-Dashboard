@@ -59,7 +59,9 @@ function new_TempChart(labels, data, room) {
       title: {
         display: true,
         text: room
-      }
+      },
+      responsive: true,
+      maintainAspectRatio: false,
     }
   });
 }
