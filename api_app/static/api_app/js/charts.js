@@ -22,6 +22,7 @@ function chartTemps(room, datapoints) {
   $.getJSON('/api/temperatures/' + room + '/' + datapoints, {
   }).done(function(data){
     console.log(data);
+    console.log(data.reverse());
 
     var newDateArr = $.map(data, function(e) {
       console.log(e.fields.date);
@@ -47,7 +48,8 @@ function new_TempChart(labels, data, room) {
       labels: labels,
       datasets: [{
         data: data,
-        label: "Temperature"
+        label: "Temperature",
+        //backgroundColor: ['rgba(115, 134, 213, .4)']
       }]
     },
     options: {
@@ -58,10 +60,11 @@ function new_TempChart(labels, data, room) {
       },
       title: {
         display: true,
-        text: room
+        text: room,
       },
       responsive: true,
       maintainAspectRatio: false,
+      responsiveAnimationDuration: 30,
     }
   });
 }
