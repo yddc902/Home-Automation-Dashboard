@@ -29,6 +29,9 @@ router.register(r'OpenModel', viewsets.OpenViewSet)
 urlpatterns = [
     path('', views.index, name='index'),
     path('settings/', views.settings, name='settings'),
+
+    #Move all this to the chart_app.urls
+    #path('charts/', include(chart_app.urls)),
     path('charts/', views.charts, name='jscharts'),
     path('charts/temperature', views.all_temp_charts, name="all_temp"),
     path('charts/temperature/<str:room>', views.temp_charts, name="temp_charts"),
@@ -42,6 +45,8 @@ urlpatterns = [
     path('upload/waterdetected/', views.post_water_detected, name='upload_detected'),
     path('upload/mail/', views.post_mail, name='upload_mail'),
 
+    #This all needs to be activated in the api_app.URLs
+    #path('api/', include(api_app.urls))
     path(r'api/', include(router.urls)),
     path(r'api/room/<str:room>',endpoints.str_test, name='str_test'),
     path(r'api/temperatures/<str:room>', endpoints.last_temp, name='api_temp'),
