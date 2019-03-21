@@ -1,3 +1,7 @@
+canvas {
+  border-bottom-right-radius: 0.7rem;
+}
+
 .chart-container {
   /**height: 280px;**/
   min-height: 500px;
@@ -6,6 +10,6 @@
   display: flex;
 }
 
-canvas {
-  border-bottom-right-radius: 0.7rem;
+#chart-jumbo {
+  margin: 15px;
 }
