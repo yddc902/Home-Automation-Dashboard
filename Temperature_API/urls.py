@@ -33,6 +33,8 @@ urlpatterns = [
     path('charts/temperature', views.all_temp_charts, name="all_temp"),
     path('charts/temperature/<str:room>', views.temp_charts, name="temp_charts"),
 
+    path('projects/project1', views.project1, name="project1"),
+
     path('admin/', admin.site.urls),
 
     path('upload/temp/', views.post_temp, name='upload_temp'),

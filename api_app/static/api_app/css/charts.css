@@ -4,3 +4,7 @@
   padding: 10px;
   display: flex;
 }
+
+canvas {
+  border-bottom-right-radius: 0.7rem;
+}
