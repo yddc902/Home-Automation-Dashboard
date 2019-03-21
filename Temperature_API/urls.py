@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path, include
 from api_app import views, viewsets, endpoints
 
+from chart_app import urls
+
 from rest_framework import routers
 
 router = routers.DefaultRouter()
@@ -30,11 +32,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('settings/', views.settings, name='settings'),
 
-    #Move all this to the chart_app.urls
-    #path('charts/', include(chart_app.urls)),
-    path('charts/', views.charts, name='jscharts'),
-    path('charts/temperature', views.all_temp_charts, name="all_temp"),
-    path('charts/temperature/<str:room>', views.temp_charts, name="temp_charts"),
+    path('charts/', include('chart_app.urls')),
 
     path('projects/project1', views.project1, name="project1"),
 

@@ -13,15 +13,6 @@ def index(request):
 def settings(request):
     return render(request, "settings.html", {'room': "Settings"})
 
-def charts(request):
-    return render(request, "chart_test.html")
-
-def temp_charts(request, room):
-    return render(request, "charts.html", {'room': room})
-
-def all_temp_charts(request):
-    return render(request, "charts_all.html", {'room': "All Temperature Charts"})
-
 def project1(request):
     return render(request, "project1.html", {'room': "Home Monitoring Dashboard Project"})
 
