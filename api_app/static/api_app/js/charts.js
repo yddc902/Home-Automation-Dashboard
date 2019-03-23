@@ -68,3 +68,24 @@ function new_TempChart(labels, data, room) {
     }
   });
 }
+
+function addDatapoint() {
+  var oldval = +$('#datapoints-input').val();
+  console.log(oldval);
+
+  var newval = (oldval + 1);
+  console.log(newval);
+
+  $('#datapoints-input').val(newval);
+}
+
+function subDatapoint() {
+  var oldval = +$('#datapoints-input').val();
+  console.log(oldval);
+
+  var newval = (oldval - 1);
+  console.log(newval);
+
+  $('#datapoints-input').val(newval);
+
+}
