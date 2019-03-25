@@ -70,22 +70,23 @@ function new_TempChart(labels, data, room) {
 }
 
 function addDatapoint() {
-  var oldval = +$('#datapoints-input').val();
-  console.log(oldval);
+  var oldVal = +$('#datapoints-input').val();
+  var newVal = (oldVal + 1);
 
-  var newval = (oldval + 1);
-  console.log(newval);
-
-  $('#datapoints-input').val(newval);
+  $('#datapoints-input').val(newVal);
 }
 
 function subDatapoint() {
-  var oldval = +$('#datapoints-input').val();
-  console.log(oldval);
+  var oldVal = +$('#datapoints-input').val();
+  var newVal = (oldVal - 1);
 
-  var newval = (oldval - 1);
-  console.log(newval);
+  $('#datapoints-input').val(newVal);
+}
 
-  $('#datapoints-input').val(newval);
+function updateChart() {
+  var room = $('#room-name').val();
+  var newDatapoints = $('#datapoints-input').val();
+
+  chartTemps(roomValue, newDatapoints);
 
 }
