@@ -13,6 +13,20 @@ function getTemp(room) {
   })
 }
 
+function getDetection() {
+  $.getJSON('/api/detection', {
+    format: "json"
+  }).done(function(data) {
+    console.log(data);
+    var bwDetected = data[0].fields.water_detected;
+    if (bwDetected) {
+        $("#basement_water").empty().append("Water detected at: " + data[0].fields.date);
+    } else {
+      $("#basement_water").empty().append("No water detected")
+    }
+  })
+}
+
 function getMail() {
   $.getJSON('/api/mail', {
     format: "json"
@@ -22,7 +36,7 @@ function getMail() {
       console.log(item.fields.mail_detected);
       //$("#mail").empty().append('Mail arrived: ' + item.fields.mail_detected);
       //if statement to check for true
-      if (item.fields.mail_detected = "true") {
+      if (item.fields.mail_detected) {
         $("#mail").empty().append("Mail arrived at: " + item.fields.date);
       } else {
         $("#mail").empty().append("Mail has not arrived");
@@ -38,6 +52,7 @@ getTemp("kitchen");
 getTemp("mancave");
 getTemp("livingroom");
 getTemp("bedroom");
+getDetection();
 getMail();
 
 //Refresh data every 15 seconds
