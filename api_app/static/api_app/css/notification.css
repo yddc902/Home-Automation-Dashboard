@@ -71,11 +71,53 @@
     font-size: 25px !important;
   }
 
+  #badgeGrid {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
   .column {
     width: 100%;
     margin-bottom: 40%;
+    margin-left: 5%;
+    margin-right: 5%;
+
+    /*margin-left: 10%;
+    margin-right: 10%;*/
+  }
+  .card-container {
+    height: 80px;
+    padding: 5px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #sidebar {
+    margin-left: -250px !important;
+  }
+  #temp-grid {
+    width: 50%;
+    padding: 0%;
+    font-size: 1.1em !important;
+  }
+
+  #temp-grid i {
+    font-size: 25px !important;
+  }
+
+  #badgeGrid {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  .column {
+    width: 100%;
+    margin-bottom: 50%;
     margin-left: 10%;
     margin-right: 10%;
+
+    /*margin-left: 10%;
+    margin-right: 10%;*/
   }
   .card-container {
     height: 80px;
