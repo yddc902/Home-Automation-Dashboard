@@ -10,3 +10,7 @@ def temp_charts(request, room):
 
 def all_temp_charts(request):
     return render(request, "charts_all.html", {'room': "All Temperature Charts"})
+
+def temptest_charts(request, room):
+    room = room.capitalize()
+    return render(request, "charts_slidedown.html", {'room':room})
