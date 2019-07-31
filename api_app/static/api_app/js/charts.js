@@ -1,4 +1,4 @@
-function chartTemps_all(datapoints) {
+function chartTemps_all(datapoints, isDisplayEnabled) {
   //Get API data
   $.getJSON('/api/TempModel/', {
     format: "json"
@@ -14,11 +14,11 @@ function chartTemps_all(datapoints) {
       return e.temperature_f;
     });
 
-    new_TempChart(newDateArr, newTempArr, "All Temperatures");
+    new_TempChart(newDateArr, newTempArr, "All Temperatures", isDisplayEnabled);
   });
 }
 
-function chartTemps(room, datapoints) {
+function chartTemps(room, datapoints, isDisplayEnabled) {
   $.getJSON('/api/temperatures/' + room + '/' + datapoints, {
   }).done(function(data){
     console.log(data);
@@ -34,11 +34,11 @@ function chartTemps(room, datapoints) {
     });
 
     console.log(newDateArr);
-    new_TempChart(newDateArr, newTempArr, room);
+    new_TempChart(newDateArr, newTempArr, room, isDisplayEnabled);
   });
 }
 
-function new_TempChart(labels, data, room) {
+function new_TempChart(labels, data, room, isDisplayEnabled) {
   //Create the chart
   var ctx = document.getElementById(room + "-temp").getContext('2d');
 
@@ -55,7 +55,7 @@ function new_TempChart(labels, data, room) {
     options: {
       scales: {
         xAxes: [{
-          display: true //false
+          display: isDisplayEnabled //false or true
         }]
       },
       title: {
