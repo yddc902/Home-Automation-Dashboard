@@ -9,7 +9,7 @@
 {% block content %}
 <div class="container-fluid">
   <div class="jumbotron" id="chart-jumbo">
-    <div class="form-row">
+    <div class="dropdown-animation form-row">
       <h1 id="room-name" value="{{room}}">{{room}}</h1>
       <a class="dropdown-toggle2" href="#" id="sandwichDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <i id="dropdown-button" class="fas fa-ellipsis-h"></i>
@@ -46,8 +46,16 @@
 
 <script type="text/javascript">
   $(window).on('load', function () {
-    var chartValues = chartTemps("{{room}}", 30);
+    var chartValues = chartTemps("{{room}}", 30, "true");
   })
+
+  $('.dropdown-animation').on('show.bs.dropdown', function(e){
+    $(this).find('.dropdown-menu').first().stop(true, true).slideDown(200);
+  });
+
+  $('.dropdown-animation').on('hide.bs.dropdown', function(e){
+    $(this).find('.dropdown-menu').first().stop(true, true).slideUp(150);
+  });
 </script>
 
 {% endblock %}
