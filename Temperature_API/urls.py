@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from api_app import views, viewsets, endpoints
-
-from chart_app import urls
 
 from rest_framework import routers
+
+from api_app import views, viewsets, endpoints
+from chart_app import urls
+from management_app import urls
 
 router = routers.DefaultRouter()
 router.register(r'TempModel', viewsets.TempViewSet)
@@ -32,9 +33,11 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('settings/', views.settings, name='settings'),
     path('charts/', include('chart_app.urls')),
+    path('management/', include('management_app.urls')),
     path('projects/project1', views.project1, name="project1"),
     path('admin/', admin.site.urls),
 
+    #These should be included in the api URLs, will have to keep though for legacy support
     path('upload/temp/', views.post_temp, name='upload_temp'),
     path('upload/water/', views.post_water, name='upload_level'),
     path('upload/waterdetected/', views.post_water_detected, name='upload_detected'),
