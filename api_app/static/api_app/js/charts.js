@@ -25,8 +25,7 @@ function chartTemps(room, datapoints) {
     console.log(data.reverse());
 
     var newDateArr = $.map(data, function(e) {
-      console.log(e.fields.date);
-      return e.fields.date;
+      return new Date(e.fields.date).toLocaleString();
     });
 
     var newTempArr = $.map(data, function(e) {
@@ -34,6 +33,7 @@ function chartTemps(room, datapoints) {
       return e.fields.temperature_f;
     });
 
+    console.log(newDateArr);
     new_TempChart(newDateArr, newTempArr, room);
   });
 }
@@ -55,7 +55,7 @@ function new_TempChart(labels, data, room) {
     options: {
       scales: {
         xAxes: [{
-          display: false
+          display: true //false
         }]
       },
       title: {
