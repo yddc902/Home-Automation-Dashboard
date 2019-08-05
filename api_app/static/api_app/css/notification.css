@@ -121,6 +121,10 @@
     padding-left: 0px !important;
     padding-right: 0px !important;
   }
+  .container {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 
   .column {
     width: 100%;
