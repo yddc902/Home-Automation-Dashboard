@@ -120,6 +120,18 @@ a[data-toggle="collapse"] {
     transform: translateY(-50%);
 }
 
+.hamburgerMenuContainer {
+  position: fixed;
+  right: 10px;
+  top: 15px;
+  font-size: 2rem;
+  display: none;
+}
+
+.hamburgerMenuContainer:active {
+  background-color: red;
+}
+
 /** Adjust values when screen is smaller**/
 @media only screen and (max-width: 1000px) {
     #sidebar {
@@ -186,4 +198,10 @@ a[data-toggle="collapse"] {
         -ms-transform: translateX(50%);
         transform: translateX(50%);
     }
+}
+
+@media only screen and (max-width: 600px) {
+  .hamburgerMenuContainer {
+    display: unset;
+  }
 }
