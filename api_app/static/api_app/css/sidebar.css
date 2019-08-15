@@ -202,6 +202,6 @@ a[data-toggle="collapse"] {
 
 @media only screen and (max-width: 600px) {
   .hamburgerMenuContainer {
-    display: unset;
+    display: none; /** none for production **/
   }
 }
